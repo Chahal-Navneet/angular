@@ -1,27 +1,50 @@
-# HotelApp
+# Getting Started with Create Angular App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
+This project was created using:
+### `ng new <project-name>`
+Enable routing by typing : y
+Stylesheet Choice: CSS 
 
-## Development server
+## Available Scripts
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+In the project directory, you can run:
 
-## Code scaffolding
+### `ng serve -o`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Runs the app in the development mode.\
+-o flag opens the browser automatically or Else use
+Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
 
-## Build
+## Project Structure
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+CRUD: Create, Read, Update, and Delete
+App Root -> Router -> {Module1[...Components], Module2[...Components]} -> Service
 
-## Running unit tests
+### `ng generate module <module-name>`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Generates module 
 
-## Running end-to-end tests
+### `ng generate component <component-name> --module=<module-name>`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Generates component and declared inside module, component can only be declared by a single component
 
-## Further help
+### `ng generate service <service-name>`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Generates service, kind of stand-alone and not part of module
+
+### `ng generate interface models/<interface-name>`
+
+Generates model
+
+### Router
+App-routing.module.ts: Add route to routes array as 
+path, component
+
+Edit Route: {path: "edit/:id", component: <component-name>}
+html: [routerLink]="['edit', id]"
+module: import RouterModule
+
+Read Route Value:
+component: import ActivatedRoute, 
+id = activatedRoute.snapshot.paramMap.get('id'); // and patchValue
+
